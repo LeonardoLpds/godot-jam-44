@@ -9,13 +9,43 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StateNode",
+"class": "IdleState",
+"language": "GDScript",
+"path": "res://src/characters/components/idle_state/idle_state.gd"
+}, {
+"base": "StateNode",
+"class": "JumpState",
+"language": "GDScript",
+"path": "res://src/characters/components/jump_state/jump_state.gd"
+}, {
+"base": "StateNode",
+"class": "MoveState",
+"language": "GDScript",
+"path": "res://src/characters/components/move_state/move_state.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://src/player/player.gd"
+"path": "res://src/characters/entities/player/player.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://src/characters/components/state_machine/state_machine.gd"
+}, {
+"base": "Node",
+"class": "StateNode",
+"language": "GDScript",
+"path": "res://src/characters/components/state_machine/state_node.gd"
 } ]
 _global_script_class_icons={
-"Player": ""
+"IdleState": "",
+"JumpState": "",
+"MoveState": "",
+"Player": "",
+"StateMachine": "",
+"StateNode": ""
 }
 
 [application]

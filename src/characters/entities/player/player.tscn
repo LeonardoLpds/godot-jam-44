@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/art/player.png" type="Texture" id=1]
+[ext_resource path="res://src/characters/entities/player/player.gd" type="Script" id=2]
+[ext_resource path="res://src/characters/components/move_state/move_state.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/characters/components/idle_state/idle_state.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/characters/components/state_machine/state_machine.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/characters/components/gravity/gravity.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/characters/components/jump_state/jump_state.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.0
+height = 8.0
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -13 )
+texture = ExtResource( 1 )
+hframes = 41
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -2 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Gravity" parent="." instance=ExtResource( 6 )]
+
+[node name="StateMachine" parent="." instance=ExtResource( 5 )]
+starting_state = NodePath("IdleState")
+
+[node name="IdleState" parent="StateMachine" instance=ExtResource( 4 )]
+move_state = NodePath("../MoveState")
+jump_state = NodePath("../JumpState")
+
+[node name="MoveState" parent="StateMachine" instance=ExtResource( 3 )]
+idle_state = NodePath("../IdleState")
+jump_state = NodePath("../JumpState")
+
+[node name="JumpState" parent="StateMachine" instance=ExtResource( 7 )]
+move_state = NodePath("../MoveState")
+idle_state = NodePath("../IdleState")
