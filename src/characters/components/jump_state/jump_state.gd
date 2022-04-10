@@ -26,5 +26,6 @@ func process(delta: float) -> StateNode:
 	return null
 
 func enter() -> void:
-	character.velocity.y = -jump_force
+	if character.is_on_floor():
+		character.velocity.y = -jump_force
 	character.animation_player.play("Jump")

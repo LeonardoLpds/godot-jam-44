@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/characters/components/attack_state/attack_state.gd" type="Script" id=1]
+
+[node name="AttackState" type="Node"]
+script = ExtResource( 1 )
