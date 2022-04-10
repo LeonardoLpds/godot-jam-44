@@ -1,6 +1,6 @@
 extends Node
 
-export(int) var gravity_force := 1200
+export(int) var gravity_force := 1000
 
 onready var object: PhysicsBody2D = get_parent()
 

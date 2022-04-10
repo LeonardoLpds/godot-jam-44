@@ -4,7 +4,7 @@ class_name MoveState
 export (NodePath) var idle_state
 export (NodePath) var jump_state
 
-var speed := 100
+var speed := 60
 
 func handled_input(event: InputEvent) -> StateNode:
 	if Input.is_action_just_pressed("ui_up"):
@@ -23,4 +23,4 @@ func process(delta: float) -> StateNode:
 
 
 func enter() -> void:
-	print("Enter move state")
+	character.animation_player.play("Run")

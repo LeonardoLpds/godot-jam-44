@@ -17,4 +17,4 @@ func process(delta: float) -> StateNode:
 	return null
 
 func enter() -> void:
-	print("Enter Idle")
+	character.animation_player.play("Idle")
