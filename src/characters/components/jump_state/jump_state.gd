@@ -14,7 +14,7 @@ func process(delta: float) -> StateNode:
 	if Input.is_action_just_released("ui_up") and character.velocity.y < -jump_force/2:
 		character.velocity.y = -jump_force/2
 	
-	character.velocity = character.move_and_slide(character.velocity, Vector2.UP)
+	character.velocity = character.move_and_slide_with_snap(character.velocity, Vector2.DOWN, Vector2.UP)
 	
 	if character.velocity.y > 0.0:
 		character.animation_player.play("Fall")

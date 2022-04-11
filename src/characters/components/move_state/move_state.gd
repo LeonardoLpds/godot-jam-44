@@ -19,7 +19,7 @@ func process(delta: float) -> StateNode:
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
 	character.velocity.x = x_input * speed
-	character.velocity = character.move_and_slide(character.velocity, Vector2.UP)
+	character.velocity = character.move_and_slide_with_snap(character.velocity, Vector2.DOWN, Vector2.UP)
 	
 	if !character.is_on_floor():
 		return get_node(jump_state) as StateNode
