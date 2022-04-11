@@ -18,12 +18,25 @@ func process(delta: float) -> StateNode:
 		direction.x = 0
 	
 	character.velocity.x = direction.x
-
+	if character.is_on_wall() and character.is_on_floor():
+		character.velocity.y = -250
 	
 	if character.hitbox.has_target():
 		return get_node(attack_state) as StateNode
+	
+	_play_animations()
 
 	return null
+
+func _play_animations() -> void:
+	if character.is_on_floor():
+		character.animation_player.play("Run")
+		return
+
+	if character.velocity.y < 0:
+		character.animation_player.play("Jump")
+		return
+	character.animation_player.play("Fall")
 
 func enter() -> void:
 	character.animation_player.play("Run")

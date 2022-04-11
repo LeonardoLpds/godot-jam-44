@@ -3,9 +3,15 @@ class_name JumpState
 
 export (NodePath) var move_state
 export (NodePath) var idle_state
+export (NodePath) var attack_state
 
 var speed := 60
 var jump_force = 250
+
+func handled_input(event: InputEvent) -> StateNode:
+	if Input.is_action_just_pressed("ui_attack"):
+		return get_node(attack_state) as StateNode
+	return null
 
 func process(delta: float) -> StateNode:
 	var x_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
