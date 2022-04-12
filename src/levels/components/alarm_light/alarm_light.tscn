@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/art/alarm_light.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/spotlight.png" type="Texture" id=2]
+[ext_resource path="res://src/levels/components/alarm_light/AlarmLight.gd" type="Script" id=3]
+
+[node name="AlarmLight" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 5, 1 )
+texture = ExtResource( 2 )
+color = Color( 1, 0, 0, 1 )
+energy = 0.5
+range_layer_min = -100

@@ -19,7 +19,7 @@ func process(delta: float) -> StateNode:
 	
 	character.velocity.x = direction.x
 	if character.is_on_wall() and character.is_on_floor():
-		character.velocity.y = -250
+		character.velocity.y = -270
 	
 	if character.hitbox.has_target():
 		return get_node(attack_state) as StateNode
