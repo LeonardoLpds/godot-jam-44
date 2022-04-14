@@ -10,11 +10,7 @@
 [ext_resource path="res://assets/art/doctor_2.png" type="Texture" id=10]
 [ext_resource path="res://assets/art/doctor_3.png" type="Texture" id=11]
 
-[sub_resource type="Environment" id=49]
-background_mode = 4
-glow_hdr_threshold = 2.0
-adjustment_enabled = true
-adjustment_saturation = 1.3
+[sub_resource type="Environment" id=59]
 
 [sub_resource type="AtlasTexture" id=50]
 atlas = ExtResource( 9 )
@@ -365,7 +361,7 @@ __meta__ = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 49 )
+environment = SubResource( 59 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -373,7 +369,6 @@ environment = SubResource( 49 )
 motion_mirroring = Vector2( 384, 216 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-modulate = Color( 0.811765, 0.811765, 0.811765, 1 )
 texture = ExtResource( 4 )
 centered = false
 
@@ -408,12 +403,14 @@ playing = true
 position = Vector2( 39, -17 )
 frames = SubResource( 37 )
 animation = "Default"
+frame = 7
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Decorations"]
 position = Vector2( 364, 31 )
 frames = SubResource( 37 )
 animation = "Default"
+frame = 7
 playing = true
 
 [node name="TileMap" type="TileMap" parent="." groups=["tilemap"]]

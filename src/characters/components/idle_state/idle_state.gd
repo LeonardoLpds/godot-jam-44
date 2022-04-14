@@ -10,7 +10,7 @@ func handled_input(event: InputEvent) -> StateNode:
 	if character.is_on_floor():
 		if Input.is_action_just_pressed("ui_up"):
 			return get_node(jump_state) as StateNode
-		if Input.is_action_just_pressed("ui_attack"):
+		if Input.is_action_just_pressed("ui_attack") and character.game_mode:
 			return get_node(attack_state) as StateNode
 	return null
 
@@ -27,4 +27,7 @@ func process(delta: float) -> StateNode:
 	return null
 
 func enter() -> void:
-	character.animation_player.play("Idle")
+	if character.game_mode:
+		character.animation_player.play("Idle")
+	else:
+		character.animation_player.play("Idle 2")

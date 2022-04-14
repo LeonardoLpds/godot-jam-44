@@ -1,7 +1,7 @@
 extends Camera2D
 
 func _ready():
-	_auto_set_limits()
+	pass
 
 func _auto_set_limits():
 	limit_left = 0

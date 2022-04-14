@@ -3,7 +3,7 @@
 [ext_resource path="res://src/characters/components/player_detection_zone/player_detection_zone.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 137.015
+radius = 128.004
 
 [node name="PlayerDetectionZone" type="Area2D"]
 collision_layer = 0

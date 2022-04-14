@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "StateNode",
+"class": "AfkState",
+"language": "GDScript",
+"path": "res://src/characters/components/afk/afk.gd"
+}, {
+"base": "StateNode",
 "class": "AiAttackState",
 "language": "GDScript",
 "path": "res://src/characters/components/ai_attack_state/ai_attack_state.gd"
@@ -70,6 +75,7 @@ _global_script_classes=[ {
 "path": "res://src/characters/components/state_machine/state_node.gd"
 } ]
 _global_script_class_icons={
+"AfkState": "",
 "AiAttackState": "",
 "AiIdleState": "",
 "AttackState": "",
@@ -87,7 +93,7 @@ _global_script_class_icons={
 [application]
 
 config/name="godot-wild-jam-44"
-run/main_scene="res://src/levels/level_test.tscn"
+run/main_scene="res://src/levels/level_start/level_start.tscn"
 config/icon="res://icon.png"
 
 [display]
