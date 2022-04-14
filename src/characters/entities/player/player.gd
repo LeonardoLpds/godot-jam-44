@@ -44,3 +44,6 @@ func enter_afk():
 
 func exit_afk():
 	state_machine.change_state(idle_state)
+
+func _on_player_screen_exited() -> void:
+	state_machine.change_state(die_state)

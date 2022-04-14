@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/notification.png-cd705b6799302c0bf94c0ac8e10d75b0.stex"
+path="res://.import/about.png-9420798aa2178f223acf8ea2aaea77d7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aseprite/notification.png"
-dest_files=[ "res://.import/notification.png-cd705b6799302c0bf94c0ac8e10d75b0.stex" ]
+source_file="res://assets/art/about.png"
+dest_files=[ "res://.import/about.png-9420798aa2178f223acf8ea2aaea77d7.stex" ]
 
 [params]
 
