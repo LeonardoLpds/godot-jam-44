@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/art/player.png" type="Texture" id=1]
 [ext_resource path="res://src/characters/entities/player/player.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://src/characters/components/die_state/die_state.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/characters/entities/player/camera_2d.gd" type="Script" id=11]
 [ext_resource path="res://src/characters/components/afk/afk.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/characters/components/mobile_controls/mobile_controls.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 5, 12.5 )
@@ -19,7 +20,7 @@ extents = Vector2( 5, 12.5 )
 [sub_resource type="Animation" id=5]
 resource_name = "Attack 1"
 length = 0.3
-step = 0.05
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -62,7 +63,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=6]
 resource_name = "Attack 2"
 length = 0.2
-step = 0.05
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -105,6 +106,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=7]
 resource_name = "Attack 3"
 length = 0.2
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -133,6 +135,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=14]
 resource_name = "Attack Air"
 length = 0.3
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -449,6 +452,9 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.1
 script = ExtResource( 11 )
 
+[node name="ShakeTimer" type="Timer" parent="Camera2D"]
+one_shot = true
+
 [node name="Hitbox" parent="." instance=ExtResource( 9 )]
 
 [node name="Area2D" parent="Hitbox" index="0"]
@@ -469,6 +475,9 @@ shape = SubResource( 12 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 rect = Rect2( -16, -32, 32, 32 )
 
+[node name="MobileControls" parent="." instance=ExtResource( 13 )]
+
+[connection signal="timeout" from="Camera2D/ShakeTimer" to="Camera2D" method="_on_shake_timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurt"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_player_screen_exited"]
 

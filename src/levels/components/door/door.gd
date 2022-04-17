@@ -10,7 +10,7 @@ export (String, FILE) var next_scene: String
 var press_x_scene := preload("res://src/characters/components/press_x/press_x.tscn")
 var player: KinematicBody2D
 
-onready var s = load(next_scene)
+onready var s = load(next_scene) if next_scene else null
 onready var animation_player := $AnimationPlayer
 onready var press_x := press_x_scene.instance()
 

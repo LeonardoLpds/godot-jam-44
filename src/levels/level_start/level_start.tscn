@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/levels/components/lab_background/lab_background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/resources/white_walls_tileset.tres" type="TileSet" id=2]
@@ -13,8 +13,10 @@
 [ext_resource path="res://src/levels/level_start/level_start.gd" type="Script" id=11]
 [ext_resource path="res://src/levels/components/game_starter/game_starter.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/levels/level_1/level_1.tscn" type="PackedScene" id=13]
-[ext_resource path="res://assets/art/about.png" type="Texture" id=14]
+[ext_resource path="res://assets/art/ephemeral.png" type="Texture" id=14]
 [ext_resource path="res://assets/art/exit.png" type="Texture" id=15]
+[ext_resource path="res://assets/art/guard.png" type="Texture" id=16]
+[ext_resource path="res://src/levels/cutscene/cutscene.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 19.5 )
@@ -140,138 +142,102 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Cutscene/Top:rect_size")
+tracks/1/path = NodePath("Player:game_mode")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 384, 0 ), Vector2( 384, 25 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Cutscene/Bottom:rect_size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 384, 0 ), Vector2( 384, 25 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Cutscene/Bottom:rect_position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 216 ), Vector2( 0, 191 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Player:game_mode")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/5/type = "animation"
-tracks/5/path = NodePath("GameStarter/AnimationPlayer")
+tracks/2/type = "animation"
+tracks/2/path = NodePath("GameStarter/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": PoolStringArray( "Broke" ),
+"times": PoolRealArray( 0.5 )
+}
+tracks/3/type = "animation"
+tracks/3/path = NodePath("Start/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": PoolStringArray( "Open" ),
+"times": PoolRealArray( 1.3 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Decorations/AlarmLight:on")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Decorations/AlarmLight2:on")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"clips": PoolStringArray( "Broke" ),
-"times": PoolRealArray( 0.5 )
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true ]
 }
 tracks/6/type = "animation"
-tracks/6/path = NodePath("Start/AnimationPlayer")
+tracks/6/path = NodePath("Player/AnimationPlayer")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"clips": PoolStringArray( "Open" ),
-"times": PoolRealArray( 1.3 )
+"clips": PoolStringArray( "Idle 2", "Idle", "Run" ),
+"times": PoolRealArray( 0, 0.7, 1.3 )
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Decorations/AlarmLight:on")
+tracks/7/path = NodePath("Player:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, false, true ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("Decorations/AlarmLight2:on")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, false, true ]
-}
-tracks/9/type = "animation"
-tracks/9/path = NodePath("Player/AnimationPlayer")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"clips": PoolStringArray( "Idle 2", "Idle", "Run" ),
-"times": PoolRealArray( 0, 0.7, 1.3 )
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Player:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
 "times": PoolRealArray( 0, 1.3, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 268, 222 ), Vector2( 268, 222 ), Vector2( 185, 222 ) ]
 }
-tracks/11/type = "value"
-tracks/11/path = NodePath("Player/Sprite:flip_h")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
+tracks/8/type = "value"
+tracks/8/path = NodePath("Player/Sprite:flip_h")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
 "times": PoolRealArray( 0.8 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
 }
-tracks/12/type = "method"
-tracks/12/path = NodePath(".")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
 "times": PoolRealArray( 0.8, 2.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -282,17 +248,31 @@ tracks/12/keys = {
 "method": "load_next_scene"
 } ]
 }
-tracks/13/type = "value"
-tracks/13/path = NodePath("Npcs/DoctorNpc3:flip_h")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
+tracks/10/type = "value"
+tracks/10/path = NodePath("Npcs/DoctorNpc3:flip_h")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
 "times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/11/type = "method"
+tracks/11/path = NodePath("Cutscene")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enter"
+} ]
 }
 
 [node name="LevelStart" type="Node2D"]
@@ -302,17 +282,7 @@ __meta__ = {
 }
 next_scene = ExtResource( 13 )
 
-[node name="Cutscene" type="CanvasLayer" parent="."]
-
-[node name="Top" type="ColorRect" parent="Cutscene"]
-anchor_right = 1.0
-color = Color( 0, 0, 0, 1 )
-
-[node name="Bottom" type="ColorRect" parent="Cutscene"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+[node name="Cutscene" parent="." instance=ExtResource( 17 )]
 
 [node name="LabBackground" parent="." instance=ExtResource( 1 )]
 
@@ -321,13 +291,17 @@ position = Vector2( 185, 200 )
 enable = false
 start_open = true
 
-[node name="About" parent="." instance=ExtResource( 10 )]
+[node name="EphemeralGuards" parent="." instance=ExtResource( 10 )]
 position = Vector2( 58, 200 )
 next_scene = "res://src/levels/about/about.tscn"
 
-[node name="About" type="Sprite" parent="About"]
-position = Vector2( 0, -22 )
+[node name="Ephemeral" type="Sprite" parent="EphemeralGuards"]
+position = Vector2( 0, -26 )
 texture = ExtResource( 14 )
+
+[node name="Guard" type="Sprite" parent="EphemeralGuards"]
+position = Vector2( 0, -22 )
+texture = ExtResource( 16 )
 
 [node name="Quit" parent="." instance=ExtResource( 10 )]
 position = Vector2( 411, 200 )
@@ -348,11 +322,11 @@ tile_data = PoolIntArray( -720919, 0, 3, -655383, 0, 65539, -720889, 0, 0, -7208
 
 [node name="HearthFlask" parent="Decorations" instance=ExtResource( 5 )]
 position = Vector2( 142, 203 )
-frame = 2
+frame = 1
 
 [node name="HearthFlask2" parent="Decorations" instance=ExtResource( 5 )]
 position = Vector2( 115, 203 )
-frame = 1
+frame = 0
 flip_h = true
 
 [node name="Vent" parent="Decorations" instance=ExtResource( 9 )]
@@ -397,6 +371,9 @@ camera_limit_left = -13
 camera_limit_right = 505
 camera_limit_bottom = 300
 game_mode = false
+
+[node name="Sprite" parent="Player" index="0"]
+flip_h = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 4 )

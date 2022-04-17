@@ -14,6 +14,6 @@ func _physics_process(delta: float) -> void:
 	light.rotation_degrees += 3
 
 func turn_on(value: bool) -> void:
+	on = value
 	if light:
-		on = value
 		light.enabled = value

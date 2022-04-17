@@ -29,6 +29,31 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/characters/components/attack_state/attack_state.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Boss",
+"language": "GDScript",
+"path": "res://src/characters/entities/boss/boss.gd"
+}, {
+"base": "StateNode",
+"class": "BossDieState",
+"language": "GDScript",
+"path": "res://src/characters/components/boss_die_state/boss_die_state.gd"
+}, {
+"base": "StateNode",
+"class": "BossFragileState",
+"language": "GDScript",
+"path": "res://src/characters/components/boss_fragile_state/boss_fragile_state.gd"
+}, {
+"base": "StateNode",
+"class": "BossIdleState",
+"language": "GDScript",
+"path": "res://src/characters/components/boss_idle_state/boss_idle_state.gd"
+}, {
+"base": "StateNode",
+"class": "BossJumpState",
+"language": "GDScript",
+"path": "res://src/characters/components/boss_jump_state/boss_jump_state.gd"
+}, {
 "base": "StateNode",
 "class": "ChaseState",
 "language": "GDScript",
@@ -79,6 +104,11 @@ _global_script_class_icons={
 "AiAttackState": "",
 "AiIdleState": "",
 "AttackState": "",
+"Boss": "",
+"BossDieState": "",
+"BossFragileState": "",
+"BossIdleState": "",
+"BossJumpState": "",
 "ChaseState": "",
 "DieState": "",
 "IdleState": "",
@@ -92,7 +122,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="godot-wild-jam-44"
+config/name="Ephemeral Hearts"
 run/main_scene="res://src/levels/level_start/level_start.tscn"
 config/icon="res://icon.png"
 

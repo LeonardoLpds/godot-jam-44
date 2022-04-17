@@ -12,6 +12,7 @@ var explosion_scene = preload("res://src/vfx/particles_explosion/particles_explo
 var velocity = Vector2.ZERO
 
 func _ready() -> void:
+	set_physics_process(false)
 	state_machine.init(self)
 
 func _unhandled_input(event: InputEvent) -> void:
