@@ -1,115 +1,24 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/resources/white_walls_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://src/levels/components/lab_background/lab_background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/characters/entities/player/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/levels/components/door/door.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/art/bed.png" type="Texture" id=5]
+[ext_resource path="res://src/levels/components/bed/bed.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/levels/level_final/level_final.gd" type="Script" id=6]
 [ext_resource path="res://src/levels/cutscene/cutscene.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/levels/components/vent/vent.tscn" type="PackedScene" id=8]
-
-[sub_resource type="Environment" id=24]
-background_mode = 4
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 5 )
-region = Rect2( 54, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 5 )
-region = Rect2( 108, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 5 )
-region = Rect2( 162, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 5 )
-region = Rect2( 216, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 5 )
-region = Rect2( 270, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 5 )
-region = Rect2( 324, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 5 )
-region = Rect2( 378, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 5 )
-region = Rect2( 432, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 5 )
-region = Rect2( 486, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 5 )
-region = Rect2( 540, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 5 )
-region = Rect2( 594, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 5 )
-region = Rect2( 648, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 5 )
-region = Rect2( 702, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 5 )
-region = Rect2( 756, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 5 )
-region = Rect2( 810, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 5 )
-region = Rect2( 864, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 5 )
-region = Rect2( 918, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 5 )
-region = Rect2( 972, 0, 54, 40 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 5 )
-region = Rect2( 1026, 0, 54, 40 )
-
-[sub_resource type="SpriteFrames" id=8]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
-"loop": true,
-"name": "dead",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
-"loop": true,
-"name": "alive",
-"speed": 5.0
-} ]
+[ext_resource path="res://assets/art/restart.png" type="Texture" id=9]
+[ext_resource path="res://assets/sounds/flash.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/fonts/manaspc.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 18.5, 11 )
 
 [sub_resource type="Animation" id=10]
 resource_name = "End"
+length = 2.0
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Player:position")
 tracks/0/interp = 1
@@ -120,7 +29,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 159, 162 ) ]
+"values": [ Vector2( 159, 163 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("Player")
@@ -129,11 +38,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "enter_afk"
+}, {
+"args": [  ],
+"method": "exit_afk"
 } ]
 }
 tracks/2/type = "method"
@@ -143,11 +55,14 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "enter"
+}, {
+"args": [  ],
+"method": "exit"
 } ]
 }
 tracks/3/type = "animation"
@@ -161,46 +76,90 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.5 )
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Bed:animation")
+tracks/4/path = NodePath("Flash/ColorRect:color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ "dead", "alive" ]
+"times": PoolRealArray( 0, 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("WorldEnvironment:environment:auto_exposure_enabled")
+tracks/5/type = "audio"
+tracks/5/path = NodePath("FlashSound")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false ]
+"clips": [ {
+"end_offset": 1.25,
+"start_offset": 0.1,
+"stream": ExtResource( 10 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+} ],
+"times": PoolRealArray( 0.3, 1 )
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("WorldEnvironment:environment:auto_exposure_scale")
+tracks/6/type = "method"
+tracks/6/path = NodePath("Bed")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0.5, 0.7, 1 ),
+"times": PoolRealArray( 0.71 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "alive"
+} ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Exit:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.5, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.4, 1.0, 0.4 ]
+"values": [ Vector2( 292, 186 ), Vector2( 292, 186 ), Vector2( 292, 141 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Player:game_mode")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ThankYou:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=25]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("WorldEnvironment:environment:auto_exposure_enabled")
+tracks/0/path = NodePath("Flash/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -209,10 +168,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("WorldEnvironment:environment:auto_exposure_scale")
+tracks/1/path = NodePath("Exit:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -221,8 +180,38 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.4 ]
+"values": [ Vector2( 292, 186 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Player:game_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ThankYou:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=26]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 11 )
 
 [node name="LevelFinal" type="Node2D"]
 script = ExtResource( 6 )
@@ -230,17 +219,32 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 24 )
-
 [node name="LabBackground" parent="." instance=ExtResource( 2 )]
 
 [node name="Cutscene" parent="." instance=ExtResource( 7 )]
+
+[node name="Flash" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Flash"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
 
 [node name="Enter" parent="." instance=ExtResource( 4 )]
 position = Vector2( 42, 141 )
 enable = false
 start_open = true
+
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+position = Vector2( 292, 186 )
+next_scene = "res://src/levels/level_start/level_start.tscn"
+
+[node name="Restart" type="Sprite" parent="Exit"]
+position = Vector2( 0, -22 )
+texture = ExtResource( 9 )
+
+[node name="Vent" parent="." instance=ExtResource( 8 )]
+position = Vector2( 287, 88 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -248,15 +252,11 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -262146, 0, 0, -262145, 0, 1, -327680, 0, 2, -327659, 0, 0, -327658, 0, 1, -327657, 0, 1, -327656, 0, 1, -327655, 0, 1, -327654, 0, 1, -327653, 0, 1, -327652, 0, 1, -327651, 0, 1, -327650, 0, 1, -327649, 0, 1, -327648, 0, 2, -196610, 0, 65536, -196609, 0, 65537, -262144, 0, 65538, -262123, 0, 65536, -262122, 0, 65537, -262121, 0, 65537, -262120, 0, 65537, -262119, 0, 65537, -262118, 0, 65537, -262117, 0, 65537, -262116, 0, 65537, -262115, 0, 65537, -262114, 0, 65537, -262113, 0, 65537, -262112, 0, 65538, -131074, 0, 65536, -131073, 0, 65537, -196608, 0, 65538, -196587, 0, 65536, -196586, 0, 65537, -196585, 0, 65537, -196584, 0, 65537, -196583, 0, 65537, -196582, 0, 65537, -196581, 0, 65537, -196580, 0, 65537, -196579, 0, 65537, -196578, 0, 65537, -196577, 0, 65537, -196576, 0, 65538, -65538, 0, 65536, -65537, 0, 65537, -131072, 0, 65538, -131051, 0, 65536, -131050, 0, 65537, -131049, 0, 65537, -131048, 0, 65537, -131047, 0, 65537, -131046, 0, 65537, -131045, 0, 65537, -131044, 0, 65537, -131043, 0, 65537, -131042, 0, 65537, -131041, 0, 65537, -131040, 0, 65538, -2, 0, 65536, -1, 0, 65537, -65536, 0, 65538, -65515, 0, 65536, -65514, 0, 65537, -65513, 0, 65537, -65512, 0, 65537, -65511, 0, 65537, -65510, 0, 65537, -65509, 0, 65537, -65508, 0, 65537, -65507, 0, 65537, -65506, 0, 65537, -65505, 0, 65537, -65504, 0, 65538, 65534, 0, 65536, 65535, 0, 65537, 0, 0, 65538, 21, 0, 65536, 22, 0, 65537, 23, 0, 65537, 24, 0, 65537, 25, 0, 65537, 26, 0, 65537, 27, 0, 65537, 28, 0, 65537, 29, 0, 65537, 30, 0, 65537, 31, 0, 65537, 32, 0, 65538, 131070, 0, 65536, 131071, 0, 65537, 65536, 0, 65538, 65557, 0, 65536, 65558, 0, 65537, 65559, 0, 65537, 65560, 0, 65537, 65561, 0, 65537, 65562, 0, 65537, 65563, 0, 65537, 65564, 0, 65537, 65565, 0, 65537, 65566, 0, 65537, 65567, 0, 65537, 65568, 0, 65538, 196606, 0, 65536, 196607, 0, 65537, 131072, 0, 65538, 131093, 0, 65536, 131094, 0, 65537, 131095, 0, 65537, 131096, 0, 65537, 131097, 0, 65537, 131098, 0, 65537, 131099, 0, 65537, 131100, 0, 65537, 131101, 0, 65537, 131102, 0, 65537, 131103, 0, 65537, 131104, 0, 65538, 262142, 0, 65536, 262143, 0, 65537, 196608, 0, 65538, 196629, 0, 65536, 196630, 0, 65537, 196631, 0, 65537, 196632, 0, 65537, 196633, 0, 65537, 196634, 0, 65537, 196635, 0, 65537, 196636, 0, 65537, 196637, 0, 65537, 196638, 0, 65537, 196639, 0, 65537, 196640, 0, 65538, 327678, 0, 65536, 327679, 0, 65537, 262144, 0, 65538, 262165, 0, 65536, 262166, 0, 65537, 262167, 0, 65537, 262168, 0, 65537, 262169, 0, 65537, 262170, 0, 65537, 262171, 0, 65537, 262172, 0, 65537, 262173, 0, 65537, 262174, 0, 65537, 262175, 0, 65537, 262176, 0, 65538, 393214, 0, 65536, 393215, 0, 65537, 327680, 0, 65538, 327701, 0, 65536, 327702, 0, 65537, 327703, 0, 65537, 327704, 0, 65537, 327705, 0, 65537, 327706, 0, 65537, 327707, 0, 65537, 327708, 0, 65537, 327709, 0, 65537, 327710, 0, 65537, 327711, 0, 65537, 327712, 0, 65538, 458750, 0, 65536, 458751, 0, 65537, 393216, 0, 65538, 393237, 0, 65536, 393238, 0, 65537, 393239, 0, 65537, 393240, 0, 65537, 393241, 0, 65537, 393242, 0, 65537, 393243, 0, 65537, 393244, 0, 65537, 393245, 0, 65537, 393246, 0, 65537, 393247, 0, 65537, 393248, 0, 65538, 524286, 0, 65536, 524287, 0, 65537, 458752, 0, 65538, 458773, 0, 65536, 458774, 0, 65537, 458775, 0, 65537, 458776, 0, 65537, 458777, 0, 65537, 458778, 0, 65537, 458779, 0, 65537, 458780, 0, 65537, 458781, 0, 65537, 458782, 0, 65537, 458783, 0, 65537, 458784, 0, 65538, 589822, 0, 65536, 589823, 0, 65537, 524288, 0, 65538, 524309, 0, 65536, 524310, 0, 65537, 524311, 0, 65537, 524312, 0, 65537, 524313, 0, 65537, 524314, 0, 65537, 524315, 0, 65537, 524316, 0, 65537, 524317, 0, 65537, 524318, 0, 65537, 524319, 0, 65537, 524320, 0, 65538, 655358, 0, 65536, 655359, 0, 65537, 589824, 0, 65538, 589845, 0, 65536, 589846, 0, 65537, 589847, 0, 65537, 589848, 0, 65537, 589849, 0, 65537, 589850, 0, 65537, 589851, 0, 65537, 589852, 0, 65537, 589853, 0, 65537, 589854, 0, 65537, 589855, 0, 65537, 589856, 0, 65538, 720894, 0, 65536, 720895, 0, 65537, 655360, 0, 65540, 655361, 0, 1, 655362, 0, 1, 655363, 0, 1, 655364, 0, 1, 655365, 0, 1, 655366, 0, 1, 655367, 0, 1, 655368, 0, 1, 655369, 0, 1, 655370, 0, 1, 655371, 0, 1, 655372, 0, 1, 655373, 0, 1, 655374, 0, 1, 655375, 0, 1, 655376, 0, 1, 655377, 0, 1, 655378, 0, 1, 655379, 0, 1, 655380, 0, 1, 655381, 0, 65541, 655382, 0, 65537, 655383, 0, 65537, 655384, 0, 65537, 655385, 0, 65537, 655386, 0, 65537, 655387, 0, 65537, 655388, 0, 65537, 655389, 0, 65537, 655390, 0, 65537, 655391, 0, 65537, 655392, 0, 65538, 786430, 0, 65536, 786431, 0, 65537, 720896, 0, 65537, 720897, 0, 65537, 720898, 0, 65537, 720899, 0, 65537, 720900, 0, 65537, 720901, 0, 65537, 720902, 0, 65537, 720903, 0, 65537, 720904, 0, 65537, 720905, 0, 65537, 720906, 0, 65537, 720907, 0, 65537, 720908, 0, 65537, 720909, 0, 65537, 720910, 0, 65537, 720911, 0, 65537, 720912, 0, 65537, 720913, 0, 65537, 720914, 0, 65537, 720915, 0, 65537, 720916, 0, 65537, 720917, 0, 65537, 720918, 0, 65537, 720919, 0, 65537, 720920, 0, 65537, 720921, 0, 65537, 720922, 0, 65537, 720923, 0, 65537, 720924, 0, 65537, 720925, 0, 65537, 720926, 0, 65537, 720927, 0, 65537, 720928, 0, 65538, 851966, 0, 65536, 851967, 0, 65537, 786432, 0, 65537, 786433, 0, 65537, 786434, 0, 65537, 786435, 0, 65537, 786436, 0, 65537, 786437, 0, 65537, 786438, 0, 65537, 786439, 0, 65537, 786440, 0, 65537, 786441, 0, 65537, 786442, 0, 65537, 786443, 0, 65537, 786444, 0, 65537, 786445, 0, 65537, 786446, 0, 65537, 786447, 0, 65537, 786448, 0, 65537, 786449, 0, 65537, 786450, 0, 65537, 786451, 0, 65537, 786452, 0, 65537, 786453, 0, 65537, 786454, 0, 65537, 786455, 0, 65537, 786456, 0, 65537, 786457, 0, 65537, 786458, 0, 65537, 786459, 0, 65537, 786460, 0, 65537, 786461, 0, 65537, 786462, 0, 65537, 786463, 0, 65537, 786464, 0, 65538, 917502, 0, 65536, 917503, 0, 65537, 851968, 0, 65537, 851969, 0, 65537, 851970, 0, 65537, 851971, 0, 65537, 851972, 0, 65537, 851973, 0, 65537, 851974, 0, 65537, 851975, 0, 65537, 851976, 0, 65537, 851977, 0, 65537, 851978, 0, 65537, 851979, 0, 65537, 851980, 0, 65537, 851981, 0, 65537, 851982, 0, 65537, 851983, 0, 65537, 851984, 0, 65537, 851985, 0, 65537, 851986, 0, 65537, 851987, 0, 65537, 851988, 0, 65537, 851989, 0, 65537, 851990, 0, 65537, 851991, 0, 65537, 851992, 0, 65537, 851993, 0, 65537, 851994, 0, 65537, 851995, 0, 65537, 851996, 0, 65537, 851997, 0, 65537, 851998, 0, 65537, 851999, 0, 65537, 852000, 0, 65538, 983038, 0, 131072, 983039, 0, 131073, 917504, 0, 131073, 917505, 0, 131073, 917506, 0, 131073, 917507, 0, 131073, 917508, 0, 131073, 917509, 0, 131073, 917510, 0, 131073, 917511, 0, 131073, 917512, 0, 131073, 917513, 0, 131073, 917514, 0, 131073, 917515, 0, 131073, 917516, 0, 131073, 917517, 0, 131073, 917518, 0, 131073, 917519, 0, 131073, 917520, 0, 131073, 917521, 0, 131073, 917522, 0, 131073, 917523, 0, 131073, 917524, 0, 131073, 917525, 0, 131073, 917526, 0, 131073, 917527, 0, 131073, 917528, 0, 131073, 917529, 0, 131073, 917530, 0, 131073, 917531, 0, 131073, 917532, 0, 131073, 917533, 0, 131073, 917534, 0, 131073, 917535, 0, 131073, 917536, 0, 131074 )
 
-[node name="Bed" type="AnimatedSprite" parent="."]
-position = Vector2( 179, 143 )
-frames = SubResource( 8 )
-animation = "dead"
-frame = 4
-playing = true
+[node name="Bed" parent="." instance=ExtResource( 5 )]
+frame = 2
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 41, 162 )
+position = Vector2( 159, 163 )
 camera_limit_left = -13
 camera_limit_bottom = 300
 
@@ -273,8 +273,21 @@ shape = SubResource( 9 )
 anims/End = SubResource( 10 )
 anims/RESET = SubResource( 25 )
 
-[node name="Vent" parent="." instance=ExtResource( 8 )]
-position = Vector2( 287, 88 )
+[node name="FlashSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
+
+[node name="ThankYou" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 124.0
+margin_top = 51.0
+margin_right = 245.0
+margin_bottom = 86.0
+custom_fonts/font = SubResource( 26 )
+text = "Thank You
+For Playing"
+align = 1
+valign = 1
 
 [connection signal="body_entered" from="GameEnd" to="." method="_on_player_entered"]
 [connection signal="body_exited" from="GameEnd" to="." method="_on_player_exited"]

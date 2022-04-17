@@ -1,7 +1,11 @@
 extends StateNode
 class_name DieState
 
+onready var die_sound := $DieSound
+
 func enter() -> void:
+	die_sound.stream.set("loop", false)
+	die_sound.play(1.11)
 	character.velocity.x = 0
 	character.set_physics_process(false)
 	character.animation_player.play("Die")

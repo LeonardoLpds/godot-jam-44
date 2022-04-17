@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/levels/components/lab_background/lab_background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/resources/white_walls_tileset.tres" type="TileSet" id=2]
@@ -8,8 +8,10 @@
 [ext_resource path="res://src/levels/components/alarm_light/alarm_light.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/levels/components/vent/vent.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/levels/components/hearth_flask/hearth_flask.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/levels/level_2/level_2.gd" type="Script" id=9]
 
 [node name="Level2" type="Node2D"]
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ],
 "_edit_vertical_guides_": [  ]
@@ -60,25 +62,25 @@ position = Vector2( 3144, -193 )
 
 [node name="HearthFlask" parent="Decorations" instance=ExtResource( 8 )]
 position = Vector2( 454, 175 )
-frame = 3
+frame = 8
 
 [node name="HearthFlask2" parent="Decorations" instance=ExtResource( 8 )]
 position = Vector2( 1355, 190 )
-frame = 2
+frame = 7
 
 [node name="HearthFlask3" parent="Decorations" instance=ExtResource( 8 )]
 position = Vector2( 1334, 190 )
-frame = 2
+frame = 7
 flip_h = true
 
 [node name="HearthFlask4" parent="Decorations" instance=ExtResource( 8 )]
 position = Vector2( 2323, -210 )
-frame = 1
+frame = 6
 flip_h = true
 
 [node name="HearthFlask5" parent="Decorations" instance=ExtResource( 8 )]
 position = Vector2( 3537, -114 )
-frame = 1
+frame = 6
 flip_h = true
 
 [node name="Enter" parent="." instance=ExtResource( 3 )]

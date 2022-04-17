@@ -1,6 +1,8 @@
 extends StateNode
 class_name JumpState
 
+onready var sound := $Sound
+
 export (NodePath) var move_state
 export (NodePath) var idle_state
 export (NodePath) var attack_state
@@ -37,6 +39,8 @@ func process(delta: float) -> StateNode:
 func enter() -> void:
 	if character.is_on_floor():
 		character.velocity.y = -jump_force
+		sound.stream.set("loop", false)
+		sound.play(0.28)
 	if character.game_mode:
 		character.animation_player.play("Jump")
 	else:

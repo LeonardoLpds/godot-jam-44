@@ -209,7 +209,7 @@ start_open = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 285, 154 )
 frames = SubResource( 42 )
-frame = 21
+frame = 22
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]

@@ -17,7 +17,7 @@ onready var press_x := press_x_scene.instance()
 
 func _ready() -> void:
 	if start_open:
-		animation_player.play_backwards("Open")
+		animation_player.play("Close")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if player and event.is_action("ui_attack"):
@@ -39,4 +39,4 @@ func _on_player_exited(body: Node) -> void:
 	if enable:
 		player.remove_child(press_x)
 		player = null
-		animation_player.play_backwards("Open")
+		animation_player.play("Close")

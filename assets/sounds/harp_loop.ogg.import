@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/harp_loop.ogg-b6971e8b86d2a02a60a830ebd773799f.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/harp_loop.ogg"
+dest_files=[ "res://.import/harp_loop.ogg-b6971e8b86d2a02a60a830ebd773799f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

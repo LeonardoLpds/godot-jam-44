@@ -126,6 +126,10 @@ config/name="Ephemeral Hearts"
 run/main_scene="res://src/levels/level_start/level_start.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MusicPlayer="*res://src/levels/components/music_player/music_player.tscn"
+
 [display]
 
 window/size/width=384

@@ -2,6 +2,7 @@ extends StateNode
 class_name BossJumpState
 
 onready var player := get_tree().current_scene.get_node("Player")
+onready var stomp_sound := $StompSound
 
 export (NodePath) var fragile_state
 
@@ -20,6 +21,8 @@ func process(delta: float) -> StateNode:
 		character.animation_player.play("Jump")	
 	
 	if character.is_on_floor():
+		stomp_sound.stream.set("loop", false)
+		stomp_sound.play()
 		jumps_make += 1
 		player.camera.shake()
 		character.velocity.y = -jump_force

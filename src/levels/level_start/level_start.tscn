@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/levels/components/lab_background/lab_background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/resources/white_walls_tileset.tres" type="TileSet" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/art/exit.png" type="Texture" id=15]
 [ext_resource path="res://assets/art/guard.png" type="Texture" id=16]
 [ext_resource path="res://src/levels/cutscene/cutscene.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/sounds/glass.ogg" type="AudioStream" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 19.5 )
@@ -24,8 +25,9 @@ extents = Vector2( 10, 19.5 )
 [sub_resource type="Animation" id=4]
 resource_name = "Idle"
 length = 0.1
+step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("Decorations/AlarmLight:on")
+tracks/0/path = NodePath("Npcs/DoctorNpc3:flip_h")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -34,10 +36,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Decorations/AlarmLight2:on")
+tracks/1/path = NodePath("Player:game_mode")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -48,17 +50,15 @@ tracks/1/keys = {
 "update": 1,
 "values": [ false ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("Npcs/DoctorNpc3:flip_h")
+tracks/2/type = "animation"
+tracks/2/path = NodePath("Player/AnimationPlayer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"clips": PoolStringArray( "Idle 2" ),
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -118,6 +118,18 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Player:game_mode")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -274,6 +286,20 @@ tracks/11/keys = {
 "method": "enter"
 } ]
 }
+tracks/12/type = "audio"
+tracks/12/path = NodePath("Glass")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.6,
+"stream": ExtResource( 18 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [node name="LevelStart" type="Node2D"]
 script = ExtResource( 11 )
@@ -322,11 +348,11 @@ tile_data = PoolIntArray( -720919, 0, 3, -655383, 0, 65539, -720889, 0, 0, -7208
 
 [node name="HearthFlask" parent="Decorations" instance=ExtResource( 5 )]
 position = Vector2( 142, 203 )
-frame = 3
+frame = 0
 
 [node name="HearthFlask2" parent="Decorations" instance=ExtResource( 5 )]
 position = Vector2( 115, 203 )
-frame = 2
+frame = 10
 flip_h = true
 
 [node name="Vent" parent="Decorations" instance=ExtResource( 9 )]
@@ -370,7 +396,6 @@ position = Vector2( 185, 221 )
 camera_limit_left = -13
 camera_limit_right = 505
 camera_limit_bottom = 300
-game_mode = false
 
 [node name="Sprite" parent="Player" index="0"]
 flip_h = false
@@ -379,6 +404,10 @@ flip_h = false
 anims/Idle = SubResource( 4 )
 anims/RESET = SubResource( 3 )
 anims/Start = SubResource( 2 )
+
+[node name="Glass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = 10.0
 
 [connection signal="body_entered" from="GameStartArea" to="." method="_on_player_entered"]
 [connection signal="body_exited" from="GameStartArea" to="." method="_on_player_exited"]

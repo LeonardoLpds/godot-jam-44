@@ -52,11 +52,11 @@ position = Vector2( 2144, 27 )
 
 [node name="HearthFlask" parent="Decorations" instance=ExtResource( 8 )]
 position = Vector2( 423, 205 )
-frame = 5
+frame = 8
 
 [node name="HearthFlask2" parent="Decorations" instance=ExtResource( 8 )]
 position = Vector2( 1676, 172 )
-frame = 5
+frame = 8
 
 [node name="AlarmLight2" parent="Decorations" instance=ExtResource( 5 )]
 position = Vector2( 389, 128 )
@@ -95,7 +95,7 @@ position = Vector2( 2433, 199 )
 position = Vector2( 2387, 196 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 57, 223 )
+position = Vector2( 56, 224 )
 camera_limit_left = 0
 camera_limit_top = 0
 camera_limit_right = 2810

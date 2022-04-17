@@ -15,11 +15,14 @@ var can_start: bool
 
 func _ready() -> void:
 	animation_player.play("Idle")
+	MusicPlayer.start()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if can_start and event.is_action("ui_attack"):
+		MusicPlayer.game()
 		player.remove_child(press_x)
 		can_start = false
+		player.animation_player.stop()
 		animation_player.play("Start")
 
 func _on_player_entered(body: Node) -> void:
