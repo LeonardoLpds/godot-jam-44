@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/levels/components/lab_background/lab_background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/resources/white_walls_tileset.tres" type="TileSet" id=2]
@@ -18,13 +18,13 @@
 [ext_resource path="res://assets/art/guard.png" type="Texture" id=16]
 [ext_resource path="res://src/levels/cutscene/cutscene.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/sounds/glass.ogg" type="AudioStream" id=18]
+[ext_resource path="res://assets/art/title.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 19.5 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "Idle"
-length = 0.1
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Npcs/DoctorNpc3:flip_h")
@@ -59,6 +59,18 @@ tracks/2/enabled = true
 tracks/2/keys = {
 "clips": PoolStringArray( "Idle 2" ),
 "times": PoolRealArray( 0 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/CenterContainer/TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -134,6 +146,18 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CanvasLayer/CenterContainer/TextureRect:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -300,6 +324,18 @@ tracks/12/keys = {
 } ],
 "times": PoolRealArray( 0 )
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("CanvasLayer/CenterContainer/TextureRect:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="LevelStart" type="Node2D"]
 script = ExtResource( 11 )
@@ -309,6 +345,23 @@ __meta__ = {
 next_scene = ExtResource( 13 )
 
 [node name="Cutscene" parent="." instance=ExtResource( 17 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -192.0
+margin_right = 192.0
+margin_bottom = 112.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 88.0
+margin_right = 296.0
+margin_bottom = 112.0
+texture = ExtResource( 19 )
+stretch_mode = 3
 
 [node name="LabBackground" parent="." instance=ExtResource( 1 )]
 
@@ -348,11 +401,11 @@ tile_data = PoolIntArray( -720919, 0, 3, -655383, 0, 65539, -720889, 0, 0, -7208
 
 [node name="HearthFlask" parent="Decorations" instance=ExtResource( 5 )]
 position = Vector2( 142, 203 )
-frame = 0
+frame = 3
 
 [node name="HearthFlask2" parent="Decorations" instance=ExtResource( 5 )]
 position = Vector2( 115, 203 )
-frame = 10
+frame = 2
 flip_h = true
 
 [node name="Vent" parent="Decorations" instance=ExtResource( 9 )]
