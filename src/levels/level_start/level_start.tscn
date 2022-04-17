@@ -322,11 +322,11 @@ tile_data = PoolIntArray( -720919, 0, 3, -655383, 0, 65539, -720889, 0, 0, -7208
 
 [node name="HearthFlask" parent="Decorations" instance=ExtResource( 5 )]
 position = Vector2( 142, 203 )
-frame = 1
+frame = 3
 
 [node name="HearthFlask2" parent="Decorations" instance=ExtResource( 5 )]
 position = Vector2( 115, 203 )
-frame = 0
+frame = 2
 flip_h = true
 
 [node name="Vent" parent="Decorations" instance=ExtResource( 9 )]
